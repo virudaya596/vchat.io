@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VChat - Chat Room</title>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ✅ Chat Header -->
+    <div class="chat-header">
+        <div class="user-info">
+            <img id="user-avatar" src="" alt="User Avatar">
+            <span id="user-name">Loading...</span>
+        </div>
+        <button id="logout-btn"><ion-icon name="log-out-outline"></ion-icon></button>
+    </div>
+
+    <!-- ✅ Chat Box -->
+    <div class="chat-box" id="chat-box"></div>
+
+    <!-- ✅ Message Input -->
+    <div class="chat-input">
+        <input type="text" id="message-input" placeholder="Type a message...">
+        <button id="send-btn"><ion-icon name="send"></ion-icon></button>
+    </div>
+
+</body>
+
+</html>
