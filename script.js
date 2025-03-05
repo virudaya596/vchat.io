@@ -25,19 +25,21 @@ const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
 // ✅ Function to Handle Google Login
+// ✅ Google Login (Using Pop-up)
 function googleLogin() {
-    signInWithPopup(auth, provider)
+    signInWithPopup(auth, provider) // 👈 Using Pop-up instead of Redirect
         .then((result) => {
             const user = result.user;
             localStorage.setItem("username", user.displayName.split(" ")[0]); // First Name as Username
             localStorage.setItem("avatar", user.photoURL);
-            window.location.href = "main.html"; // Redirect to Chat Page
+            window.location.href = "main.html"; // ✅ Redirect to Chat Page manually
         })
         .catch((error) => {
             console.error("Login Error:", error);
             alert("Login Failed! Try Again.");
         });
 }
+
 
 // ✅ Function to Handle Logout
 function googleLogout() {
