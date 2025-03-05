@@ -1,0 +1,54 @@
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(#0392FD, #1DEFBE);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 99%;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+
+/* LOGIN PAGE STYLING.... */
+.login-container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+button {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 25px;
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: space-between;
+    transition: 0.3s ease-out;
+}
+button:hover {
+    background-color: #ffffff84;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
