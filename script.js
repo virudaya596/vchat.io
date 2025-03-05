@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebas
 import { 
     getAuth, 
     signInWithPopup, 
+    signInAnonymously, 
     GoogleAuthProvider, 
     signOut, 
     onAuthStateChanged 
@@ -41,6 +42,27 @@ function googleLogin() {
 }
 
 
+// ✅ Anonymous Login (User Chooses Username & Avatar)
+function anonymousLogin() {
+    signInAnonymously(auth)
+        .then(() => {
+            let username = prompt("Enter a username:");
+            let avatar = prompt("Enter an avatar URL (or leave blank for default):");
+
+            if (!username) username = "Guest"; // Default name
+            if (!avatar) avatar = "default-avatar.png"; // Set a default avatar
+
+            localStorage.setItem("username", username);
+            localStorage.setItem("avatar", avatar);
+            
+            window.location.href = "main.html"; // ✅ Redirect to Chat Page
+        })
+        .catch((error) => {
+            console.error("Anonymous Login Error:", error);
+            alert("Login Failed! Try Again.");
+        });
+}
+
 // ✅ Function to Handle Logout
 function googleLogout() {
     signOut(auth).then(() => {
@@ -78,4 +100,15 @@ document.addEventListener("DOMContentLoaded", function () {
             userAvatarElement.src = avatar;
         }
     }
+});
+
+// ✅ Event Listeners
+document.addEventListener("DOMContentLoaded", function () {
+    const loginButton = document.getElementById("google-login-btn");
+    const anonLoginButton = document.getElementById("anonymous-login-btn"); // New Button
+    const logoutButton = document.getElementById("logout-btn");
+
+    if (loginButton) loginButton.addEventListener("click", googleLogin);
+    if (anonLoginButton) anonLoginButton.addEventListener("click", anonymousLogin); // New Button
+    if (logoutButton) logoutButton.addEventListener("click", googleLogout);
 });
